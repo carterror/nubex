@@ -30,13 +30,13 @@ function App() {
         </Route>
 
         {/* Auth routes */}
-        <Route path="/auth">
+        <Route path="/auth/">
           <Route path="login" element={<Login />} />
         </Route>
 
         {/* Admin routes */}
         <Route
-          path="/admin"
+          path="/admin/"
           element={
             <ProtectedRoute>
               <AdminLayout />

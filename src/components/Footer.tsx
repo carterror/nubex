@@ -33,6 +33,11 @@ export default function Footer() {
                   Cart
                 </Link>
               </li>
+              <li>
+                <Link to="/admin" className="text-gray-400 hover:text-white">
+                  Admin
+                </Link>
+              </li>
             </ul>
           </div>
 
