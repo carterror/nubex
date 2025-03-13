@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import Layout from './components/Layout';
 import Home from './pages/Home';
@@ -20,8 +20,10 @@ function App() {
     <Router>
       <Toaster position="top-center" />
       <Routes>
+        {/* Redirect from / to /store */}
+        <Route path="/" element={<Navigate to="/store" replace />} />
         {/* Public routes */}
-        <Route path="/" element={<Layout />}>
+        <Route path="/store" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="products" element={<Products />} />
           <Route path="products/:slug" element={<ProductDetails />} />
@@ -30,13 +32,13 @@ function App() {
         </Route>
 
         {/* Auth routes */}
-        <Route path="/auth/">
+        <Route path="/auth">
           <Route path="login" element={<Login />} />
         </Route>
 
         {/* Admin routes */}
         <Route
-          path="/admin/"
+          path="/admin"
           element={
             <ProtectedRoute>
               <AdminLayout />
